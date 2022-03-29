@@ -1,103 +1,112 @@
-        n = num * 3
+import random
 
+class Sudoku():
+    def __init__(self, row=3, col=3):
+        self.sudo_tab = [[[0 for x in range(0,3)]for y in range(0,3)]for z in range(0,9)]
+
+    #spoko
+    def create_unbound_place(self, i=0):
+        numbers = [x for x in range(1, 10)]
+        for k in range(3):
+            for j in range(3):
+                r = random.randint(0, len(numbers)-1)
+                a = numbers.pop(r)
+                self.sudo_tab[i][j][k] = a
+
+    #spoko
+    def print_big_row(self, num):
+        n = num * 3
         for j in range(3):
             print("|", end=' ')
             for i in range(n-3, n):
                 for k in range(3):
-                    print(self.sudo_tab[i].croot[j][k], end=' ')
+                    print(self.sudo_tab[i][j][k], end=' ')
                 print("|", end=' ')
             print()
 
-
+    #spoko
     def print_full_sudoku(self, separate_row=True):
         if(separate_row):print("-"*25)
         for i in range(1,4):
-            self.print_row(i)
+            self.print_big_row(i)
             if(separate_row):print("-"*25)
-    
+    #spoko
     def find_empty(self):
         for x in range(0,len(self.sudo_tab)):
-            for y in range(0,len(self.sudo_tab[x].croot)):
-                for z in range(0,len(self.sudo_tab[x].croot[y])):
-                    if self.sudo_tab[x].croot[y][z] == 0:
-                        print(x,y,z)
+            for y in range(0,len(self.sudo_tab[x])):
+                for z in range(0,len(self.sudo_tab[x][y])):
+                    if self.sudo_tab[x][y][z] == 0:
                         return [x,y,z]
         return False
-    def test_backtrack(self):
+    def is_ok(self, x, row, column, box):
+        a=self.is_in_row(x, row, box)
+        b=self.is_in_column(x, column, box)
+        c=self.is_in_box(x, box)
+        if a==True or b==True or c==True:
+            return False
+        else:
+            return True
+    def backtrack(self):
         position=self.find_empty()
+
         if(position==False):
+            self.print_full_sudoku()
             return True
         else:
             box, row, column = position
+
         for x in range(1,10):
-
-
-
-class Square():
-
-    def __init__(self, unr=[], unc=[]):
-        self.croot = [[0 for x in range(3)] for z in range(3)]
-        self.sbu = None
-
-    def create_unbound_place(self):
-        numbers = [x for x in range(1, 10)]
-        for i in range(3):
-            for j in range(3):
-                r = random.randint(0, len(numbers)-1)
-                a = numbers.pop(r)
-                self.croot[i][j] = a
-
-
-    def create_list_union(self, use_num_row=[], use_num_column=[]):
-        li = []
-        record = []
-        sorted_index = []
-        y = 0
-        while(y < 3):
-            i = 0
-            while(i < 3):
-                union = set(use_num_row[y]).union(set(use_num_column[i]))
-                record = [y, i, union]
-                li.append(record)
-                i+=1
-            y+=1
-        return li
-
-    def sort_by_union(self,union_list):
-        n = len(union_list)
-        i=0
-        while(i<=n-1):
-            #zadeklarowanie jako mini elementu o inteksie w którym chce wstawić najmniejszą wartość
-            mini = union_list[i]
-            indMin = i
-            j=i+1
-            while(j<n):
-                #znajduje najmniejszy element z pozostałej listy
-                if (len(union_list[j][2])>len(mini[2])):
-                    mini=union_list[j]
-                    indMin=j
-                j+=1
+            ok =self.is_ok(x, row,column,box)
+            if ok==True:
+                self.sudo_tab[box][row][column]=x
+                if(self.backtrack()):
+                    return True
             
-            union_list[indMin] = union_list[i]
-            union_list[i] = mini
-            i+=1
-        return union_list
-    def get_used_here(self):
-        used = []
+                self.sudo_tab[box][row][column]=0
+        return False
+
+
+
+   
+    def is_in_box(self, x, n):
         for i in range(3):
             for j in range(3):
-                used.append(self.croot[i][j])
-        used = set(used)
-        return used
+                if x==self.sudo_tab[n][i][j]:
+                    return True
+        return False
+    def is_in_column(self,x, column, box):
+        if box in [0,3,6]:
+            rg = [0,3,6]
+        elif box in [1,4,7]:
+            rg =[1,4,7]
+        else: 
+            rg=[2,5,8]
+        for j in range(3):
+            for i in rg:
+                for j in range(3):
+                    if x == self.sudo_tab[i][j][column]:
+                        return True
+            return False
+    def is_in_row(self, x, row, box):
+        if box//3==0:
+            rg = range(0,3)
+        elif box//3==1:
+            rg=range(3,6)
+        else:
+            rg=range(6,9)
+        for i in rg:
+            for j in range(3):
+                if x==self.sudo_tab[i][row][j]:
+                    return True
+        return False
+
+
+
 
 app = Sudoku()
-app.sudo_tab[0].create_unbound_place()
-app.sudo_tab[1].create_unbound_place()
-app.sudo_tab[2].create_unbound_place()
-app.sudo_tab[4].create_unbound_place()
-app.sudo_tab[5].create_unbound_place()
-app.sudo_tab[6].create_unbound_place()
-app.sudo_tab[7].create_unbound_place()
-app.sudo_tab[3].croot[2][0]=3
+
+app.create_unbound_place(0)
+app.create_unbound_place(4)
+
 app.print_full_sudoku()
-ret = app.test_backtrack()
+app.backtrack()
