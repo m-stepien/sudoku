@@ -1,0 +1,128 @@
+/*nav{
+	height: ;
+	padding-top: 20px;
+}
+*/
+
+ul{
+	width: 30%;
+	float: right;
+}
+li{
+	padding-left: 2%;
+	padding-right: 2%;
+	margin: auto;
+		line-height: 30px;
+		height: 50px;
+
+}
+li:hover{
+	opacity: 0.7;
+}
+.sub-but{
+	width: 10%;
+	margin-left: 70%;
+	margin-top: 30px;
+}
+
+main{
+	padding-top: 60px;
+	padding-bottom: 60px;
+}
+table{
+	margin: auto;
+	border: solid black 1px;
+	cellspacing: 0px;
+}
+td{
+	border-top: solid black 3px;
+	border-bottom: solid black 3px;
+	height: 50px;
+}
+table tr td{
+	border-top: inherit;
+	border-bottom: inherit;
+
+	border-right: solid black 1px;
+	border-left: solid black 1px;
+
+}
+#category{
+	width: 15%;
+	margin-left: 15%;
+	min-width: 200px;
+}
+.sel{
+	margin: 50px;
+	margin-top: 0px;
+
+	height: 30px;
+}
+.normalTr{
+
+	border-top: solid black 1px;
+	border-bottom: solid black 1px;
+}
+.top{
+	border-top: solid black 5px;
+	border-bottom: solid black 1px;
+}
+.bottom{
+	border-top: solid black 1px;
+	border-bottom: solid black 5px;
+}
+
+.left{
+	border-left: solid black 5px;
+	border-right: solid black 1px;
+}
+.right{
+	border-left: solid black 1px;
+	border-right: solid black 5px;
+}
+.normalTd{
+	border-left: solid black 1px;
+	border-right: solid black 1px;
+}
+input[type='text']{
+	height: inherit;
+	width: 50px;
+	text-align: center;
+	font-size: 30px;
+
+
+}
+@media only screen and (max-width: 600px){
+.top{
+	border-top: solid black 3px;
+}
+.bottom{
+	border-bottom: solid black 3px;
+}
+
+.left{
+	border-left: solid black 3px;
+}
+.right{
+	border-right: solid black 3px;
+}
+td{
+height: 30px;
+	border-top: solid black 2px;
+	border-bottom: solid black 2px;
+}
+input[type='text']{
+	width: 30px;
+	font-size: 20px;
+}
+}
+
+/*.btn_menu
+{
+height: 50px;
+width: 5%;
+border: solid 2px blue;
+}
+
+
+*/

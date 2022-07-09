@@ -1,0 +1,117 @@
+{% include "header.html" %}
+<main class="bg-light bg-gradient">
+<select id="category" name="category" class='sel form-select' selected='all' onChange="get_new_sudoku()" >
+  <option value='43' id=opt_easy class='lvl'>Easy</option>
+  <option value='49' id=opt_medium class='lvl'>Medium</option>
+  <option value='58' id=opt_hard class='lvl'>Hard</option>
+</select>
+<div>
+<table cellspacing="0" cellpadding="0">
+  <tr class="top">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="normalTr">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="normalTr">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="top">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="normalTr">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="normalTr">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="top">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="normalTr">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+  <tr class="bottom">
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="left"><input type="text" maxlength="1"></td>
+  <td class="normalTd" class="normalTd"><input type="text" maxlength="1"></td>
+  <td class="right"><input type="text" maxlength="1"></td>
+</tr>
+</table>
+</div>
+<script src="{{url_for('static', filename='main.js')}}"></script>
+<div class='sub-but'>
+<button name="name" value="value" class='btn btn-dark' onclick="checkSudoku()">Sprawdź</button>
+</div>
+</main>
+</body>
+</html> 
