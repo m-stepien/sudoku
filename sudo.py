@@ -62,12 +62,12 @@ class Sudoku():
         a=self.is_in_row(x, row, box)
         b=self.is_in_column(x, column, box)
         c=self.is_in_box(x, box)
-        d=self.is_in_other_solution(self, x, row, column, box)
-        if a==True or b==True or c==True or d==True:
+        # d=self.is_in_other_solution(self, x, row, column, box)
+        if a==True or b==True or c==True:
             return False
         else:
             return True
-    def backtrack(self, other):
+    def backtrack(self):
         position=self.find_empty()
 
         if(position==False):
